@@ -4,14 +4,14 @@
 import sys
 
 # 这里写你自己的地址
-sys.path.append('/home/shimeng/code/spider_framework_github_responsity')
+sys.path.append('/home/michael/Documents/gits/AiSpider3/spider')
 
-from spider.tools import format_put_data
-from spider.data_save import pipeline
-from spider.html_parser import parser
-from spider.page_downloader import aispider
-from spider.threads import start, work_queue, save_queue
-from spider.log_format import logger
+from tools import format_put_data
+from data_save import pipeline
+from html_parser import parser
+from page_downloader import aispider
+from threads import start, work_queue, save_queue
+from log_format import logger
 from proxy_basic_config import url_parse_dict
 from _request import valid
 

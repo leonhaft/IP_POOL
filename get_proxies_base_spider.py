@@ -8,14 +8,14 @@ import os
 import time
 
 # 这里写你自己的框架保存地址
-sys.path.append('/home/shimeng/code/spider_framework_github_responsity')
+sys.path.append('/home/shimeng/code/spider_framework_github_responsity/spider')
 
-from spider.tools import format_put_data
-from spider.data_save import pipeline
-from spider.html_parser import parser
-from spider.page_downloader import aispider
-from spider.threads import start, work_queue, save_queue
-from spider.log_format import logger
+from tools import format_put_data
+from data_save import pipeline
+from html_parser import parser
+from page_downloader import aispider
+from threads import start, work_queue, save_queue
+from log_format import logger
 from proxy_basic_config import url_parse_dict, target_urls,collection_name
 from _request import valid
 
@@ -37,7 +37,7 @@ class SpiderMain(object):
 
     def craw(self, request=aispider.request):
 
-        for key, value in url_parse_dict.iteritems():
+        for key, value in url_parse_dict.items():
             if value.get('status') == 'active':
                 # 网站名
                 website_name = key

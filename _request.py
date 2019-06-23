@@ -9,14 +9,14 @@
 
 """
 import requests
-import urlparse
+from urllib.parse import urlparse
 
 header = {'User-Agent':'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/60.0.3112.90 Safari/537.36'}
 
 
 def valid(_args, dont_filter):
     url = _args.get('url')
-    header['Host'] = urlparse.urlparse(url).netloc
+    header['Host'] = urlparse(url).netloc
     time_out = _args.get('time_out')
     _ip = _args.get('ip')
     diy_header = _args.get('diy_header') if _args.get('diy_header') else header
@@ -27,7 +27,7 @@ def valid(_args, dont_filter):
             'https': 'http://%s' % _ip
         }
         con = requests.get(url, headers=diy_header, proxies=proxy, timeout=time_out)
-    except Exception,e:
+    except Exception as e:
         # print e
         return None, None
     else:
